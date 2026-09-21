@@ -37,6 +37,22 @@ jobs:
             -e 's#href="/ciyu/programs/"#href="/programs/"#g' \
             -e 's#href="/ciyu/"#href="/"#g'
 
+          # The shared HANA site-core treats any / path as the HANA homepage and
+          # injects the HANA ENTER splash. Hineni used to live at /ciyu/, where
+          # that splash never appeared. Mark the shared intro as seen before
+          # site.js loads so the migrated Hineni root preserves the original
+          # /ciyu/ entrance behavior instead of showing the HANA homepage intro.
+          python3 - <<'PY'
+          from pathlib import Path
+          for p in Path('_site').rglob('*.html'):
+              s = p.read_text(encoding='utf-8')
+              marker = '<script src="/assets/site.js'
+              guard = "<script>try{sessionStorage.setItem('hana-intro-seen','1')}catch(e){}</script>\n  "
+              if marker in s and guard not in s:
+                  s = s.replace(marker, guard + marker, 1)
+              p.write_text(s, encoding='utf-8')
+          PY
+
           # Hineni is its own site-level entity on the subdomain.
           python3 - <<'PY'
           from pathlib import Path

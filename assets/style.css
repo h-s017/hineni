@@ -1,0 +1,514 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Serif+TC:wght@400;500;600;700;900&display=swap");
+
+:root{
+  --ink:#111111;
+  --black:#111111;
+  --gray900:#1f1f1f;
+  --gray700:#4a4a4a;
+  --gray500:#767676;
+  --gray300:#d9d9d9;
+  --gray200:#eeeeee;
+  --gray100:#f7f7f7;
+  --white:#ffffff;
+  --line:#dedede;
+  --shadow:0 18px 54px rgba(0,0,0,.08);
+  --font-serif:"Cormorant Garamond","Noto Serif TC","Source Han Serif TC","Source Han Serif","思源宋體","Songti TC","PMingLiU",serif;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:#ffffff;
+  color:var(--black);
+  font-family:var(--font-serif);
+  line-height:1.82;
+  letter-spacing:.035em;
+  font-weight:400;
+}
+a{color:inherit;text-decoration:none}
+a[href*="helori-scent-lab"],
+a[href*="helori.hanascent.com"],
+.helori-hero h1,
+.grid3 .card:first-child h3{
+  text-transform:uppercase;
+}
+html body .page-hero h1,
+html body .helori-hero h1{
+  font-size:clamp(39.6px,5.22vw,68.4px)!important;
+}
+html body .hero-title{
+  font-size:clamp(36px,4.86vw,79.2px)!important;
+}
+html body .hero-title span{
+  font-size:clamp(23.4px,2.7vw,38.7px)!important;
+}
+html body h2{
+  font-size:clamp(27px,3.06vw,43.2px)!important;
+}
+html body .cta h2{
+  font-size:clamp(34.2px,4.5vw,61.2px)!important;
+}
+html body a.text-link{
+  font-size:15.4px!important;
+  line-height:1.8!important;
+}
+img{display:block;max-width:100%}
+button,input,textarea,select{font:inherit}
+
+.site-nav{
+  position:sticky;
+  top:0;
+  z-index:100;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  padding:16px 5vw;
+  background:rgba(255,255,255,.94);
+  backdrop-filter: blur(18px);
+  border-bottom:1px solid var(--line);
+  transition:background-color .28s ease,border-color .28s ease,box-shadow .28s ease,padding .28s ease;
+}
+.site-nav.is-scrolled{
+  background:rgba(255,255,255,.98);
+  border-bottom-color:rgba(17,17,17,.16);
+  box-shadow:0 10px 30px rgba(0,0,0,.055);
+}
+.logo{
+  font-size:19px;
+  letter-spacing:.28em;
+  font-weight:600;
+  white-space:nowrap;
+}
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:20px;
+  font-size:14px;
+  color:var(--gray700);
+}
+.nav-links a{
+  padding:6px 0;
+  border-bottom:1px solid transparent;
+}
+.nav-links a:hover,
+.nav-links a.active{
+  color:var(--black);
+  border-color:var(--black);
+}
+.nav-cta{
+  border:1px solid var(--black)!important;
+  padding:8px 14px!important;
+}
+.mobile-note{display:none}
+
+.hero{
+  padding:32px 5vw 68px;
+  background:#ffffff;
+}
+.hero-shell{
+  max-width:1320px;
+  margin:0 auto;
+}
+.hero-visual{
+  position:relative;
+  overflow:hidden;
+  border:1px solid var(--line);
+  background:#ffffff;
+  box-shadow:var(--shadow);
+}
+.hero-visual img{
+  width:100%;
+  height:auto;
+  transition:transform 1.2s cubic-bezier(.2,.7,.2,1),filter 1.2s ease;
+}
+.hero-visual:hover img,
+.hero-visual:focus-within img{
+  transform:scale(1.018);
+}
+.hero-panel{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:32px;
+  align-items:end;
+  margin-top:34px;
+}
+.eyebrow,
+.kicker{
+  margin:0 0 14px;
+  color:var(--gray500);
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  font-size:14px;
+  font-weight:500;
+}
+.hero-title{
+  font-size:clamp(40px,5.4vw,88px);
+  line-height:.96;
+  letter-spacing:.16em;
+  margin:0 0 18px;
+  font-weight:500;
+  overflow-wrap:normal;
+  word-break:keep-all;
+}
+.hero-title span{
+  display:block;
+  font-size:clamp(26px,3vw,43px);
+  letter-spacing:.12em;
+  margin-top:18px;
+  font-weight:500;
+  white-space:nowrap;
+  overflow-wrap:normal;
+  word-break:keep-all;
+}
+.hero-text{
+  margin:0;
+  color:var(--gray700);
+  font-size:19px;
+  max-width:620px;
+}
+.hero-actions,
+.actions{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:46px;
+  padding:12px 20px;
+  border:1px solid var(--black);
+  color:var(--black);
+  background:#ffffff;
+  font-size:15px;
+  letter-spacing:.12em;
+  transition:background-color .22s ease,color .22s ease,border-color .22s ease,box-shadow .22s ease,transform .22s ease;
+}
+.btn:hover{
+  transform:translateY(-1px);
+  box-shadow:0 10px 24px rgba(0,0,0,.08);
+}
+.btn.primary{
+  background:var(--black);
+  color:#ffffff;
+}
+.btn.light{
+  border-color:#ffffff;
+  color:#ffffff;
+  background:transparent;
+}
+.btn.light.primary{
+  background:#ffffff;
+  color:var(--black);
+}
+.btn.red{
+  border-color:var(--gray700);
+  color:var(--gray700);
+  font-weight:500;
+  transform:rotate(-1deg);
+}
+
+section{
+  padding:96px 6vw;
+  border-top:1px solid var(--line);
+  background:#ffffff;
+}
+.wrap{
+  max-width:1180px;
+  margin:0 auto;
+}
+.section-head{
+  display:grid;
+  grid-template-columns:minmax(180px,.34fr) 1fr;
+  gap:48px;
+  align-items:start;
+  margin-bottom:42px;
+}
+.business-services{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:18px;
+  align-items:stretch;
+}
+.business-services .course-card{
+  display:flex;
+  flex-direction:column;
+  height:100%;
+}
+.business-services .course-meta{
+  margin-top:auto;
+}
+h1,h2,h3,p{overflow-wrap:anywhere}
+.hero-title,
+.hero-title span{
+  overflow-wrap:normal!important;
+  word-break:keep-all!important;
+}
+h2{
+  margin:0;
+  font-size:clamp(30px,3.4vw,48px);
+  line-height:1.25;
+  letter-spacing:.12em;
+  font-weight:500;
+}
+.lead{
+  margin:16px 0 0;
+  color:var(--gray700);
+  font-size:19px;
+  max-width:760px;
+}
+.split{
+  display:grid;
+  grid-template-columns:.92fr 1.08fr;
+  gap:52px;
+  align-items:center;
+}
+.photo-card{
+  padding:18px;
+  border:1px solid var(--line);
+  background:#ffffff;
+}
+.photo-card img{
+  filter:grayscale(.08) contrast(.98);
+  transition:transform 1s cubic-bezier(.2,.7,.2,1),filter .8s ease;
+}
+.photo-card:hover img,
+.photo-card:focus-within img{
+  filter:grayscale(0) contrast(1);
+  transform:scale(1.015);
+}
+.about-profile{
+  align-items:center;
+}
+.about-portrait{
+  margin:0;
+  justify-self:center;
+  width:min(360px,100%);
+  aspect-ratio:4/5;
+  overflow:hidden;
+  border-radius:50% / 42%;
+  border:1px solid var(--line);
+  background:#ffffff;
+}
+.about-portrait img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.footer{
+  border-top:1px solid var(--line);
+  padding:38px 5vw 42px;
+  background:#ffffff;
+  color:var(--gray700);
+  font-size:14px;
+  line-height:1.9;
+  letter-spacing:.06em;
+}
+.footer-grid{
+  max-width:1320px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) minmax(0,1.25fr);
+  gap:32px;
+  align-items:start;
+}
+.footer b{
+  color:var(--black);
+  font-weight:600;
+  letter-spacing:.12em;
+}
+.footer a{
+  color:inherit;
+  text-decoration:none;
+  border-bottom:1px solid transparent;
+}
+.footer a:hover{
+  color:var(--black);
+  border-bottom-color:var(--black);
+}
+.footer-col{
+  min-width:0;
+  overflow-wrap:normal;
+  word-break:keep-all;
+}
+.footer-place{
+  white-space:nowrap;
+}
+
+.motion-ready .reveal-on-scroll{
+  opacity:0;
+  transform:translateY(30px);
+  transition:opacity .72s ease,transform .72s cubic-bezier(.2,.7,.2,1);
+  transition-delay:calc(var(--reveal-index, 0) * 70ms);
+  will-change:opacity,transform;
+}
+.motion-ready .reveal-on-scroll.is-visible{
+  opacity:1;
+  transform:translateY(0);
+}
+.motion-ready .hero-visual.reveal-on-scroll{
+  transform:translateY(20px);
+}
+.motion-ready .hero-visual.reveal-on-scroll.is-visible{
+  transform:translateY(0);
+}
+.text-link,
+a.text-link{
+  background-image:linear-gradient(currentColor,currentColor);
+  background-position:0 100%;
+  background-repeat:no-repeat;
+  background-size:100% 1px;
+  transition:background-size .28s ease,color .22s ease,transform .22s ease;
+}
+.text-link:hover,
+a.text-link:hover,
+.text-link:focus-visible,
+a.text-link:focus-visible{
+  background-size:0 1px;
+  transform:translateX(2px);
+}
+
+@media(max-width:760px){
+  .business-services{
+    grid-template-columns:1fr;
+  }
+  .motion-ready .reveal-on-scroll{
+    transform:translateY(34px);
+    transition-duration:.82s;
+  }
+  .motion-ready .hero-panel > .reveal-on-scroll{
+    transform:translateY(28px);
+  }
+  .motion-ready .hero-visual.reveal-on-scroll{
+    transform:translateY(26px);
+  }
+  .motion-ready .reveal-on-scroll.is-visible,
+  .motion-ready .hero-panel > .reveal-on-scroll.is-visible,
+  .motion-ready .hero-visual.reveal-on-scroll.is-visible{
+    transform:translateY(0);
+  }
+  .hero-panel{
+    grid-template-columns:1fr!important;
+    gap:24px!important;
+    align-items:start!important;
+  }
+  section{
+    padding:72px 6vw;
+  }
+  .section-head,
+  .split{
+    grid-template-columns:1fr!important;
+    gap:28px!important;
+    align-items:start!important;
+  }
+  .section-head{
+    margin-bottom:34px;
+  }
+  .about-profile{
+    justify-items:center;
+  }
+  .about-profile > div{
+    width:100%;
+  }
+  .about-portrait{
+    width:min(220px,72vw);
+  }
+  html body .hero-title span{
+    font-size:clamp(16px,4.7vw,21px)!important;
+    letter-spacing:.03em!important;
+    white-space:nowrap!important;
+    overflow-wrap:normal!important;
+    word-break:keep-all!important;
+  }
+  .footer{
+    padding:32px 5vw 36px;
+    font-size:13px;
+  }
+  .footer-grid{
+    grid-template-columns:1fr;
+    gap:18px;
+  }
+  .footer-place{
+    white-space:normal;
+  }
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .site-nav,
+  .hero-visual img,
+  .photo-card img,
+  .btn,
+  .text-link,
+  a.text-link,
+  .motion-ready .reveal-on-scroll{
+    transition:none!important;
+  }
+  .motion-ready .reveal-on-scroll,
+  .motion-ready .hero-visual.reveal-on-scroll,
+  .hero-visual:hover img,
+  .hero-visual:focus-within img,
+  .photo-card:hover img,
+  .photo-card:focus-within img,
+  .text-link:hover,
+  a.text-link:hover,
+  .text-link:focus-visible,
+  a.text-link:focus-visible{
+    opacity:1!important;
+    transform:none!important;
+  }
+}
+
+/* 此域：Open Days 下方顯示週六安息日公休 */
+body[data-hana-page="ciyu"] .ciyu-week-block:first-child{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+}
+body[data-hana-page="ciyu"] .ciyu-week-block:first-child small{order:1;}
+body[data-hana-page="ciyu"] .ciyu-week-block:first-child strong{order:2;}
+body[data-hana-page="ciyu"] .ciyu-week-block:first-child strong::after{
+  content:"CLOSE DAY";
+  display:block;
+  width:100%;
+  margin:30px auto 12px;
+  color:var(--gray500);
+  font-family:"Cormorant Garamond","Noto Serif TC",serif;
+  font-size:12px;
+  line-height:1.7;
+  font-weight:500;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  text-align:center;
+}
+body[data-hana-page="ciyu"] .ciyu-week-block:first-child::before{
+  content:"週六";
+  order:3;
+  display:block;
+  width:100%;
+  font-family:"Cormorant Garamond","Noto Serif TC",serif;
+  font-size:clamp(27px,3vw,42px);
+  line-height:1.2;
+  font-weight:500;
+  letter-spacing:.04em;
+  text-align:center;
+}
+body[data-hana-page="ciyu"] .ciyu-week-block:first-child::after{
+  content:"Sabbath Rest";
+  order:4;
+  display:block;
+  width:100%;
+  margin:8px auto 0;
+  font-family:"Cormorant Garamond","Noto Serif TC",serif;
+  font-size:clamp(22px,2.4vw,32px);
+  line-height:1.45;
+  font-weight:500;
+  letter-spacing:.04em;
+  text-align:center;
+}

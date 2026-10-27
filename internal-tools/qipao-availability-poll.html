@@ -66,8 +66,8 @@
  </section>
  <section class="card">
   <div class="row"><h2>所有人的投票統計</h2><div class="actions"><strong id="participantCount">— 人參與</strong><button id="refreshBtn" type="button">更新統計</button></div></div>
-  <p class="muted">此處只顯示各時段票數，不公開參與者姓名。依票數由多至少排序。</p>
-  <div class="summary"><div><h3>最多人有空的 12 個時段</h3><ol class="rank" id="ranking"></ol></div><div><h3>目前統計說明</h3><p class="muted">淡綠色標記為已選時段；時段上的數字是所有人已提交的投票數。投票選擇不代表活動已確定排程。</p><p class="muted">投票期間：2026/12/01–2027/01/31<br>統一採台灣時間（UTC+8）。</p></div></div>
+  <p class="muted">各時段票數顯示於上方月曆，不公開參與者姓名。</p>
+  <p class="muted">淡綠色代表你勾選的時段；各時段票數已顯示於上方月曆。投票不代表活動已確定排程。</p>
  </section>
  <section class="card">
   <h2>統籌者專用｜檢視名單與匯出</h2>
@@ -127,12 +127,6 @@
  }
  function drawSummary(){
    $('participantCount').textContent=state.participants+' 人參與';
-   const rank=Object.entries(state.counts).filter(([,n])=>n>0).sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0])).slice(0,12);
-   const el=$('ranking');el.replaceChildren();
-   if(!rank.length){let li=document.createElement('li');li.textContent='目前尚未有人提交投票';el.append(li);}
-   for(const [k,n] of rank){const li=document.createElement('li'),label=document.createElement('span'),bar=document.createElement('div'),fill=document.createElement('div'),number=document.createElement('strong');
-     label.textContent=nice(k);bar.className='track';fill.className='fill';fill.style.width=(100*n/Math.max(state.participants,1))+'%';bar.append(fill);
-     number.textContent=n+' 票';number.className='num';li.append(label,bar,number);el.append(li);}
  }
  async function refresh(){
    const data=await rpc('qipao_availability_summary');if(!Array.isArray(data))throw Error('票數格式錯誤');

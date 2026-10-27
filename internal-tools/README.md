@@ -1,24 +1,27 @@
-# 旗袍合作｜內部可配合時段投票
+# 旗袍合作｜2026 年 12 月、2027 年 1 月線上時段投票
 
-## 不部署原則
+## 已部署的獨立投票頁
 
-- 本工具僅存放於 `internal/qipao-availability-2026-2027` 分支，**不可合併到網站所使用的 `main` 分支**。
-- 不要建立 GitHub Pages、Cloudflare Pages 或其他公開站點，也不要從網站新增連結。
-- 原始碼位於 **公開 GitHub repository**，因此程式碼本身仍可在 GitHub 被檢視；程式本身無任何真實選票與個資。
-- 程式碼採單一 HTML、零外部依賴、零網路請求，可下載至個人電腦離線開啟。
+https://ihmvziqisputjnjkuhvm.supabase.co/functions/v1/qipao-availability-2026-2027
 
-## 使用方式
+- 官網 `hineni.hanascent.com` 不變；程式存放於 GitHub `internal/qipao-availability-2026-2027` 分支，不合併 `main`。
+- 獨立網址由現有 **hana-ai-office** Supabase 專案的 Edge Function `qipao-availability-2026-2027` 提供。
+- 不加入官網導覽、不設定搜尋引擎索引（`X-Robots-Tag: noindex, nofollow`），但網址可由任何拿到連結的人開啟，因此**不是登入限制的私人網站**。
+- 同個瀏覽器以隨機 UUID 更新自己的既有票；換瀏覽器可能算另一位使用者。
+- 每日「上午 10:00–14:00／下午 14:00–18:00」複選，週日為每週第一天。
+- 全體可見每時段累積票數；姓名和各人的選擇僅在使用私下管理碼時顯示。
+- 統籌者可匯出包含姓名的 CSV，**切勿公開管理碼或姓名 CSV**。
+- 匿名投票不具嚴格身分驗證，適合小型內部協調，不宜用於需要防灌票的正式票選。
 
-1. 將 `internal-tools/qipao-availability-poll.html` 檔案下載，透過 LINE 或內部通訊工具傳給所有參與者（不要傳網站網址）。
-2. 參與者在瀏覽器中開啟 HTML，填寫姓名並勾選 2026/12、2027/01 可配合的上午（10:00–14:00）或下午（14:00–18:00）。
-3. 按「產生投票訊息」，再「複製投票訊息」，私訊統籌者；**產生訊息不代表已傳出**。
-4. 統籌者在同一份 HTML 中進入「統籌者彙整」，將收到的投票訊息依序貼上並匯入。
-5. 查看各時段票數、熱門時段，使用 CSV 匯出統計；並定期下載 JSON 備份。
-6. 同一個參與者使用同一瀏覽器再投，可用相同投票識別碼覆蓋舊票；若清除瀏覽器資料，可能被算成另一人，統籌者應檢查。
+## 原始碼與部署
 
-## 隱私與限制
+- `internal-tools/qipao-availability-poll.html`：網頁原始碼（線上版本）。
+- `internal-tools/qipao-poll-edge-function.ts`：完整已部署的 Edge Function 來源（內嵌同一 HTML）。
+- 資料表：`public.qipao_availability_votes`（RLS 啟用，前端無資料表直接讀取權限）。
+- 公開 RPC：`qipao_availability_submit`、`qipao_availability_mine`、`qipao_availability_summary`。
+- 保護 RPC：`qipao_availability_admin`，必須提供不記入版本庫的管理碼。
+- 從瀏覽器發送投票到 Supabase Data API；不需 LINE 回傳投票碼，也不需建立新付費專案。
 
-- 沒有雲端投票同步、後端 API、外部字型、追蹤碼或網路傳輸。
-- 參與者的選擇僅在本機儲存，必須自行將訊息發給統籌者。
-- 統籌者收到票選訊息後，本機儲存所有已匯入選票；若刪除瀏覽器資料且未備份，就會遺失。
-- 這是小型內部協調工具，不具登入驗證或防冒名機制，不宜用於正式身分核驗。
+## 後續修改
+
+若要改日期、時段或表單樣式，需一起更新 GitHub HTML、Edge Function 源碼與必要的資料庫限制，再重新部署。**不要將此分支合併到官網 `main`，避免改動正式站。**

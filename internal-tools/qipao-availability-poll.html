@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>旗袍合作｜12 月與 1 月內部時段調查</title>
+  <style>
+    :root{--bg:#f6f6f3;--paper:#fff;--ink:#26302d;--accent:#4b675c;--mute:#6f7872;--line:#dfe5df;--light:#edf3ee}
+    *{box-sizing:border-box}html{font-family:system-ui,-apple-system,"Noto Sans TC","PingFang TC",sans-serif;color:var(--ink);background:var(--bg)}
+    body{margin:0;font-size:15px;line-height:1.6}main{max-width:1000px;margin:auto;padding:38px 20px 90px}
+    h1{font-family:Georgia,"Noto Serif TC",serif;font-weight:500;letter-spacing:.05em;font-size:clamp(24px,4vw,38px);margin:9px 0 12px}
+    h2{font-size:18px;font-weight:650;margin:0 0 8px}p{margin:8px 0;color:var(--mute)}
+    .eyebrow{font:11px Georgia,serif;letter-spacing:.18em;color:var(--accent)}.rule{border-bottom:1px solid var(--line);padding-bottom:22px;margin-bottom:22px}
+    .card{border:1px solid var(--line);background:var(--paper);border-radius:6px;padding:22px;margin:16px 0}
+    .row{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.actions{display:flex;gap:8px;flex-wrap:wrap}
+    button,input,textarea{font:inherit}button{border:1px solid #cbd6ce;background:white;padding:9px 14px;border-radius:4px;color:var(--ink);cursor:pointer;touch-action:manipulation}
+    button:hover{background:#f4f7f4}button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+    button[aria-pressed="true"],button.active{background:var(--accent);border-color:var(--accent);color:white}
+    button.primary{background:var(--ink);border-color:var(--ink);color:#fff;padding:12px 21px;font-weight:650}
+    button.primary:hover{background:#40514a}button:disabled{cursor:not-allowed;opacity:.5}
+    label{display:block;font-weight:600;font-size:13px;margin-bottom:5px}input,textarea{padding:10px 12px;border-radius:4px;border:1px solid #c4d0c7;max-width:100%;background:white;color:var(--ink)}
+    input{width:min(430px,100%)}textarea{display:block;width:100%;min-height:130px;resize:vertical;line-height:1.6;font-size:12px}
+    .muted{color:var(--mute);font-size:13px}.notice{background:#f1f5f1;border-left:3px solid #729484;padding:11px 14px;font-size:13px;color:#3f594c;margin:15px 0}
+    .warning{background:#fcf5eb;border-left-color:#d7a452;color:#78582b}
+    .tab{flex:1;min-width:125px}.cal{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;margin-top:16px}
+    .weekday{text-align:center;font-size:12px;color:var(--mute);border-bottom:1px solid var(--line);padding:6px 0 9px}
+    .weekday:first-child{color:#a2706e}.day{border:1px solid var(--line);border-radius:4px;background:#fcfdfa;padding:6px;min-height:123px;display:flex;flex-direction:column;gap:5px}
+    .day-number{font-size:12px;font-weight:650;background:transparent;border:0;padding:1px 4px;align-self:flex-start}
+    .day-number:hover{background:#eaf0eb}.day.sun .day-number{color:#b3716d}.empty{min-height:20px}
+    .slot{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:0;width:100%;min-height:39px;padding:4px 1px;border:1px solid #dce5de;font-size:12px;line-height:1.4}
+    .slot small{color:#839088;font-size:10px}.slot[aria-pressed="true"] small{color:#eff9f1}
+    .selected{font-weight:650;color:var(--accent);margin-top:12px}
+    .summary{display:grid;grid-template-columns:1fr 1fr;gap:20px}.rank{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:9px}
+    .rank li{display:grid;grid-template-columns:minmax(115px,1fr) minmax(80px,2fr) 42px;align-items:center;gap:9px;font-size:12px}
+    .track{background:#edf2ed;border-radius:12px;height:9px;overflow:hidden}.fill{height:100%;background:#809d8b;border-radius:12px}.num{text-align:right;font-variant-numeric:tabular-nums}
+    table{border-collapse:collapse;width:100%;font-size:13px}td,th{padding:9px 7px;border-bottom:1px solid var(--line);text-align:left}th{background:#f7faf7}
+    .scroll{max-width:100%;overflow-x:auto}.hidden{display:none!important}.status{font-size:13px;min-height:1.4em}.status.error{color:#ab4242}.status.success{color:#32634c}
+    footer{text-align:center;font-size:11px;color:#959d97;margin-top:30px}
+    @media(max-width:660px){main{padding:24px 10px 60px}.card{padding:15px 9px}.cal{gap:3px}.day{padding:4px 2px;min-height:110px;gap:4px}.slot{min-height:36px;padding:2px 0;font-size:10px}.slot small{font-size:8px}.weekday{font-size:11px}.day-number{font-size:11px}.summary{grid-template-columns:1fr}.rank li{gap:5px;grid-template-columns:125px 1fr 35px}}
+  </style>
+</head>
+<body>
+<main>
+  <header class="rule">
+    <div class="eyebrow">HANA · INTERNAL AVAILABILITY POLL</div>
+    <h1>旗袍合作｜可配合時間調查</h1>
+    <p>2026 年 12 月與 2027 年 1 月，每天兩個半日時段。週曆從星期日開始。</p>
+    <div class="notice warning">這是離線投票工具。<strong>不會自動把選票傳給其他人。</strong>參與者請複製投票訊息傳給統籌者；統籌者收到後使用「統籌者彙整」匯入。所有選票只儲存在彙整者的瀏覽器中。</div>
+  </header>
+  <div class="card">
+    <div class="actions" role="group" aria-label="投票模式">
+      <button id="voterTab" class="tab active" type="button" aria-pressed="true">我是參與者</button>
+      <button id="organizerTab" class="tab" type="button" aria-pressed="false">統籌者彙整</button>
+    </div>
+  </div>
+  <section id="voterSection">
+    <div class="card">
+      <h2>01 · 填寫姓名</h2>
+      <label for="voterName">姓名或暱稱（必填）</label>
+      <input id="voterName" maxlength="40" placeholder="例：小雅" autocomplete="name">
+      <p class="muted">你的選擇會暫存在目前裝置，重新選取後可再次傳送更新票。</p>
+    </div>
+    <div class="card">
+      <div class="row"><h2>02 · 選擇可配合的日期</h2><div class="actions" role="group" aria-label="月份"><button id="decBtn" type="button" class="active">2026 / 12</button><button id="janBtn" type="button">2027 / 01</button></div></div>
+      <p class="muted">上午 10:00–14:00｜下午 14:00–18:00。可跨月份複選；點日期數字可一次選擇或取消當日兩個時段。</p>
+      <div class="cal" id="calendar" role="group" aria-label="日期與時段選擇"></div>
+      <div class="row" style="margin-top:14px"><div class="selected" id="selectedCount">已選擇 0 個時段</div><button id="clearBtn" type="button">清除所有選擇</button></div>
+    </div>
+    <div class="card">
+      <h2>03 · 傳送給統籌者</h2>
+      <p class="muted">選好時間後點「產生投票訊息」，複製整段內容傳到群組或私訊。<strong>只有產生訊息並傳給統籌者，才算完成投票。</strong></p>
+      <div class="actions"><button id="generateBtn" type="button" class="primary">產生投票訊息</button><button id="copyBtn" type="button" disabled>複製投票訊息</button><button id="saveTxtBtn" type="button" disabled>下載文字檔</button></div>
+      <div style="margin-top:13px"><label for="voterMessage">投票訊息（可直接轉寄）</label><textarea id="voterMessage" readonly placeholder="請先填寫姓名、勾選時段後產生訊息。"></textarea></div>
+      <div class="status" id="voterStatus" role="status"></div>
+    </div>
+  </section>
+  <section id="organizerSection" class="hidden">
+    <div class="card">
+      <h2>01 · 匯入收到的投票</h2>
+      <p class="muted">將參與者傳來的完整投票訊息貼在下方。每次可貼一份；同一裝置產生的更新票會覆蓋舊票，不會重複累計。</p>
+      <label for="incoming">投票訊息</label>
+      <textarea id="incoming" placeholder="請貼上含有 QIPAO_VOTE_V1: 的投票訊息"></textarea>
+      <div class="actions" style="margin-top:9px"><button id="importBtn" class="primary" type="button">匯入此張選票</button><button id="clearIncomingBtn" type="button">清空輸入</button></div>
+      <div class="status" id="organizerStatus" role="status"></div>
+    </div>
+    <div class="card">
+      <div class="row"><h2>02 · 票數統計</h2><strong id="participantCount">0 人參與</strong></div>
+      <p class="muted">依照參與者實際回傳並匯入的票數計算，不包含尚未回傳的選擇。</p>
+      <div class="summary">
+        <div><h3>最熱門的 12 個時段</h3><ol class="rank" id="ranking"></ol></div>
+        <div><h3>參與者清單</h3><div class="scroll"><table><thead><tr><th>姓名</th><th>已選時段</th><th>操作</th></tr></thead><tbody id="voters"></tbody></table></div></div>
+      </div>
+      <div class="actions" style="margin-top:22px"><button id="csvBtn" type="button">匯出票數 CSV</button><button id="backupBtn" type="button">備份所有投票 JSON</button><button id="restoreBtn" type="button">還原投票備份</button><input id="restoreInput" type="file" accept="application/json,.json" class="hidden"></div>
+      <div class="notice warning">統計資料保存在此瀏覽器中。請定期使用「備份所有投票 JSON」，避免更換裝置或清除瀏覽器資料後遺失。</div>
+    </div>
+  </section>
+  <footer>INTERNAL USE ONLY · OFFLINE FIRST · 2026.12 — 2027.01</footer>
+</main>
+<script>
+(function(){
+  'use strict';
+  const PREFIX='QIPAO_VOTE_V1:';
+  const VOTER_KEY='hana_qipao_poll_voter_v1';
+  const ADMIN_KEY='hana_qipao_poll_admin_v1';
+  const first='2026-12-01';
+  const last='2027-01-31';
+  const $=id=>document.getElementById(id);
+  const pad=n=>String(n).padStart(2,'0');
+  const monthDays={12:31,1:31};
+  const validSlots=new Set();
+  for(const [year,month,days] of [[2026,12,31],[2027,1,31]]){
+    for(let d=1;d<=days;d++){
+      const date=`${year}-${pad(month)}-${pad(d)}`;
+      validSlots.add(date+'_am'); validSlots.add(date+'_pm');
+    }
+  }
+  function readStorage(key,fallback){try{return JSON.parse(localStorage.getItem(key))||fallback;}catch(e){return fallback;}}
+  function persist(key,value){try{localStorage.setItem(key,JSON.stringify(value));return true;}catch(e){return false;}}
+  function uuid(){return crypto&&crypto.randomUUID?crypto.randomUUID():('v-'+Date.now().toString(36)+'-'+Math.random().toString(36).slice(2));}
+  const initial=readStorage(VOTER_KEY,{});
+  const voter={id:typeof initial.id==='string'?initial.id:uuid(),name:typeof initial.name==='string'?initial.name:'',slots:new Set(Array.isArray(initial.slots)?initial.slots.filter(s=>validSlots.has(s)):[])};
+  let adminVotes=readStorage(ADMIN_KEY,{});
+  if(!adminVotes||typeof adminVotes!=='object'||Array.isArray(adminVotes))adminVotes={};
+  let month=12;
+  function voterSave(){persist(VOTER_KEY,{id:voter.id,name:voter.name,slots:[...voter.slots]});}
+  function formatSlot(s){const [date,part]=s.split('_');const [y,m,d]=date.split('-');return `${Number(m)}/${Number(d)} ${part==='am'?'10:00–14:00':'14:00–18:00'}`;}
+  function safeSlots(list){if(!Array.isArray(list)||list.length>124)return null;const s=[...new Set(list)];if(s.some(x=>typeof x!=='string'||!validSlots.has(x)))return null;return s.sort();}
+  function makeCalendar(){
+    const el=$('calendar');el.replaceChildren();
+    ['日','一','二','三','四','五','六'].forEach(w=>{const t=document.createElement('div');t.className='weekday';t.textContent='週'+w;el.append(t);});
+    const year=month===12?2026:2027;const lead=new Date(year,month-1,1).getDay();
+    for(let i=0;i<lead;i++){const blank=document.createElement('div');blank.className='empty';el.append(blank);}
+    for(let d=1;d<=monthDays[month];d++){
+      const date=`${year}-${pad(month)}-${pad(d)}`;
+      const day=document.createElement('div');day.className='day'+(new Date(year,month-1,d).getDay()===0?' sun':'');
+      const dateBtn=document.createElement('button');dateBtn.type='button';dateBtn.className='day-number';dateBtn.textContent=d;dateBtn.setAttribute('aria-label',`${Number(month)} 月 ${d} 日，全選或取消當天`);
+      dateBtn.addEventListener('click',()=>{
+        const both=voter.slots.has(date+'_am')&&voter.slots.has(date+'_pm');
+        ['am','pm'].forEach(part=>both?voter.slots.delete(date+'_'+part):voter.slots.add(date+'_'+part));
+        updateCalendar();voterSave();invalidateDraft();
+      });
+      day.append(dateBtn);
+      for(const [part,label,time] of [['am','上午','10–14'],['pm','下午','14–18']]){
+        const key=date+'_'+part;
+        const btn=document.createElement('button');btn.type='button';btn.className='slot';btn.dataset.slot=key;
+        btn.setAttribute('aria-label',`${Number(month)} 月 ${d} 日 ${label} ${time} 點`);
+        const name=document.createElement('span');name.textContent=label;
+        const small=document.createElement('small');small.textContent=time;
+        btn.append(name,small);
+        btn.addEventListener('click',()=>{voter.slots.has(key)?voter.slots.delete(key):voter.slots.add(key);updateCalendar();voterSave();invalidateDraft();});
+        day.append(btn);
+      }
+      el.append(day);
+    }
+    updateCalendar();
+    $('decBtn').classList.toggle('active',month===12);$('janBtn').classList.toggle('active',month===1);
+  }
+  function updateCalendar(){document.querySelectorAll('[data-slot]').forEach(btn=>btn.setAttribute('aria-pressed',String(voter.slots.has(btn.dataset.slot))));$('selectedCount').textContent=`已選擇 ${voter.slots.size} 個半日時段`;}
+  function invalidateDraft(){ $('voterMessage').value='';$('copyBtn').disabled=true;$('saveTxtBtn').disabled=true;$('voterStatus').textContent=''; }
+  function setStatus(id,message,error=false){const node=$(id);node.textContent=message;node.className='status '+(error?'error':'success');}
+  function encodeData(data){const bytes=new TextEncoder().encode(JSON.stringify(data));let binary='';bytes.forEach(b=>binary+=String.fromCharCode(b));return btoa(binary).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');}
+  function decodeData(encoded){if(encoded.length>16000)throw Error('選票內容過長');const binary=atob(encoded.replace(/-/g,'+').replace(/_/g,'/'));const bytes=Uint8Array.from(binary,ch=>ch.charCodeAt(0));return JSON.parse(new TextDecoder().decode(bytes));}
+  function download(filename,content,type='text/plain;charset=utf-8'){
+    const blob=new Blob([content],{type});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=filename;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),2000);
+  }
+  async function copyText(value){if(navigator.clipboard&&navigator.clipboard.writeText){try{await navigator.clipboard.writeText(value);return true;}catch(e){}}
+    const target=$('voterMessage');target.focus();target.select();try{return document.execCommand('copy');}catch(e){return false;}}
+  function switchTab(organizer){ $('voterSection').classList.toggle('hidden',organizer);$('organizerSection').classList.toggle('hidden',!organizer);$('voterTab').classList.toggle('active',!organizer);$('organizerTab').classList.toggle('active',organizer);$('voterTab').setAttribute('aria-pressed',String(!organizer));$('organizerTab').setAttribute('aria-pressed',String(organizer));if(organizer)renderAdmin();}
+  function validVote(raw){
+    if(!raw||typeof raw!=='object'||typeof raw.id!=='string'||raw.id.length<8||raw.id.length>100||typeof raw.name!=='string'||raw.name.trim().length<1||raw.name.trim().length>40)throw Error('姓名或投票識別碼有誤');
+    const list=safeSlots(raw.slots);if(!list||list.length===0)throw Error('選擇的時段有誤');
+    return {id:raw.id,name:raw.name.trim(),slots:list};
+  }
+  function importVote(text){const match=text.match(/QIPAO_VOTE_V1:([\w-]+)/);if(!match)throw Error('找不到有效的投票碼。請要求參與者傳送完整訊息。');return validVote(decodeData(match[1]));}
+  function renderAdmin(){
+    const votes=Object.values(adminVotes).filter(v=>{try{validVote(v);return true;}catch(e){return false;}});
+    $('participantCount').textContent=votes.length+' 人參與';
+    const counts={};for(const s of validSlots)counts[s]=0;
+    votes.forEach(v=>v.slots.forEach(s=>{counts[s]++;}));
+    const ranked=Object.entries(counts).filter(([,n])=>n>0).sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0])).slice(0,12);
+    const ol=$('ranking');ol.replaceChildren();
+    if(!ranked.length){const li=document.createElement('li');li.textContent='尚未收到選票';ol.append(li);}
+    for(const [key,count] of ranked){
+      const li=document.createElement('li');const name=document.createElement('span');name.textContent=formatSlot(key);
+      const track=document.createElement('div');track.className='track';const fill=document.createElement('div');fill.className='fill';fill.style.width=(count/Math.max(votes.length,1)*100)+'%';track.append(fill);
+      const n=document.createElement('strong');n.textContent=count+' 票';n.className='num';li.append(name,track,n);ol.append(li);
+    }
+    const tbody=$('voters');tbody.replaceChildren();
+    votes.sort((a,b)=>a.name.localeCompare(b.name,'zh-Hant'));
+    for(const v of votes){
+      const tr=document.createElement('tr'),name=document.createElement('td'),n=document.createElement('td'),action=document.createElement('td'),remove=document.createElement('button');
+      name.textContent=v.name;n.textContent=v.slots.length+' 個';remove.textContent='移除';remove.type='button';remove.addEventListener('click',()=>{if(confirm(`確定移除 ${v.name} 的選票？`)){delete adminVotes[v.id];persist(ADMIN_KEY,adminVotes);renderAdmin();}});
+      action.append(remove);tr.append(name,n,action);tbody.append(tr);
+    }
+  }
+  function csvCell(v){let t=String(v);if(/^[\s]*[=+\-@]/.test(t))t="'"+t;return '"'+t.replaceAll('"','""')+'"';}
+  function exportCSV(){const votes=Object.values(adminVotes).filter(v=>{try{validVote(v);return true;}catch(e){return false;}});const rows=[['日期','時段','可配合人數','參與者姓名']];
+    const sorted=[...validSlots].sort();for(const slot of sorted){const people=votes.filter(v=>v.slots.includes(slot));rows.push([slot.split('_')[0],slot.endsWith('_am')?'10:00-14:00':'14:00-18:00',people.length,people.map(v=>v.name).join('、')]);}
+    download('旗袍活動_2026年12月至2027年1月_投票統計.csv','\ufeff'+rows.map(row=>row.map(csvCell).join(',')).join('\r\n'),'text/csv;charset=utf-8');}
+  $('voterTab').addEventListener('click',()=>switchTab(false));$('organizerTab').addEventListener('click',()=>switchTab(true));
+  $('decBtn').addEventListener('click',()=>{month=12;makeCalendar();});$('janBtn').addEventListener('click',()=>{month=1;makeCalendar();});
+  $('voterName').value=voter.name;
+  $('voterName').addEventListener('input',e=>{voter.name=e.target.value;voterSave();invalidateDraft();});
+  $('clearBtn').addEventListener('click',()=>{if(voter.slots.size===0||confirm('確定清除所有已選日期與時段？')){voter.slots.clear();voterSave();updateCalendar();invalidateDraft();}});
+  $('generateBtn').addEventListener('click',()=>{
+    try{
+      const vote=validVote({id:voter.id,name:voter.name,slots:[...voter.slots]});
+      const human=vote.slots.map(formatSlot).join('、');
+      const code=PREFIX+encodeData(vote);
+      $('voterMessage').value=`【旗袍合作｜時間調查】\n姓名：${vote.name}\n可配合時段（共 ${vote.slots.length} 個）：\n${human}\n\n以下為彙整用投票碼，請務必完整傳送：\n${code}`;
+      $('copyBtn').disabled=false;$('saveTxtBtn').disabled=false;
+      setStatus('voterStatus','訊息已產生，請複製後傳給統籌者，才算完成投票。');
+    }catch(e){setStatus('voterStatus',e.message,true);}
+  });
+  $('copyBtn').addEventListener('click',async()=>{const ok=await copyText($('voterMessage').value);setStatus('voterStatus',ok?'已複製，請貼到 LINE 群組或私訊統籌者。':'自動複製失敗，請長按選取文字手動複製。',!ok);});
+  $('saveTxtBtn').addEventListener('click',()=>download('旗袍合作_我的可配合時間.txt',$('voterMessage').value));
+  $('clearIncomingBtn').addEventListener('click',()=>{$('incoming').value='';setStatus('organizerStatus','');});
+  $('importBtn').addEventListener('click',()=>{
+    try{const v=importVote($('incoming').value);const existed=Object.prototype.hasOwnProperty.call(adminVotes,v.id);adminVotes[v.id]=v;if(!persist(ADMIN_KEY,adminVotes))throw Error('瀏覽器儲存失敗，請檢查儲存空間或隱私設定。');
+      renderAdmin();$('incoming').value='';setStatus('organizerStatus',`${existed?'已更新':'已匯入'} ${v.name} 的選票（${v.slots.length} 個時段）。`);
+    }catch(e){setStatus('organizerStatus',e.message,true);}
+  });
+  $('csvBtn').addEventListener('click',exportCSV);
+  $('backupBtn').addEventListener('click',()=>download('旗袍合作_投票原始備份.json',JSON.stringify({format:'HANA_QIPAO_BACKUP_V1',votes:Object.values(adminVotes)},null,2),'application/json;charset=utf-8'));
+  $('restoreBtn').addEventListener('click',()=>$('restoreInput').click());
+  $('restoreInput').addEventListener('change',async e=>{
+    try{const f=e.target.files?.[0];if(!f)return;if(f.size>2000000)throw Error('備份檔案超過 2MB');const backup=JSON.parse(await f.text());if(backup.format!=='HANA_QIPAO_BACKUP_V1'||!Array.isArray(backup.votes))throw Error('不是此程式產生的備份檔');
+      if(!confirm(`要還原 ${backup.votes.length} 張選票？相同投票碼會覆蓋現有選票。`))return;
+      const next={...adminVotes};for(const row of backup.votes){const v=validVote(row);next[v.id]=v;}adminVotes=next;if(!persist(ADMIN_KEY,adminVotes))throw Error('瀏覽器儲存失敗');renderAdmin();setStatus('organizerStatus',`已還原 ${backup.votes.length} 張備份選票。`);
+    }catch(err){setStatus('organizerStatus',err.message,true);}finally{e.target.value='';}
+  });
+  makeCalendar();
+})();
+</script>
+</body>
+</html>

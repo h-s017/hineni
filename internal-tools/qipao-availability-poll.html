@@ -42,194 +42,153 @@
 </head>
 <body>
 <main>
-  <header class="rule">
-    <div class="eyebrow">HANA · INTERNAL AVAILABILITY POLL</div>
-    <h1>心村快閃合作｜可配合時間調查</h1>
-    <p>2026/12，2027/1</p>
-  </header>
-  <div class="card">
-    <div class="actions" role="group" aria-label="投票模式">
-      <button id="voterTab" class="tab active" type="button" aria-pressed="true">我是參與者</button>
-      <button id="organizerTab" class="tab" type="button" aria-pressed="false">統籌者彙整</button>
-    </div>
-  </div>
-  <section id="voterSection">
-    <div class="card">
-      <h2>01 · 填寫姓名</h2>
-      <label for="voterName">姓名或暱稱（必填）</label>
-      <input id="voterName" maxlength="40" placeholder="例：小雅" autocomplete="name">
-      <p class="muted">你的選擇會暫存在目前裝置，重新選取後可再次傳送更新票。</p>
-    </div>
-    <div class="card">
-      <div class="row"><h2>02 · 選擇可配合的日期</h2><div class="actions" role="group" aria-label="月份"><button id="decBtn" type="button" class="active">2026 / 12</button><button id="janBtn" type="button">2027 / 01</button></div></div>
-      <p class="muted">上午 10:00–14:00｜下午 14:00–18:00。可跨月份複選；點日期數字可一次選擇或取消當日兩個時段。</p>
-      <div class="cal" id="calendar" role="group" aria-label="日期與時段選擇"></div>
-      <div class="row" style="margin-top:14px"><div class="selected" id="selectedCount">已選擇 0 個時段</div><button id="clearBtn" type="button">清除所有選擇</button></div>
-    </div>
-    <div class="card">
-      <h2>03 · 傳送給統籌者</h2>
-      <p class="muted">選好時間後點「產生投票訊息」，複製整段內容傳到群組或私訊。<strong>只有產生訊息並傳給統籌者，才算完成投票。</strong></p>
-      <div class="actions"><button id="generateBtn" type="button" class="primary">產生投票訊息</button><button id="copyBtn" type="button" disabled>複製投票訊息</button><button id="saveTxtBtn" type="button" disabled>下載文字檔</button></div>
-      <div style="margin-top:13px"><label for="voterMessage">投票訊息（可直接轉寄）</label><textarea id="voterMessage" readonly placeholder="請先填寫姓名、勾選時段後產生訊息。"></textarea></div>
-      <div class="status" id="voterStatus" role="status"></div>
-    </div>
-  </section>
-  <section id="organizerSection" class="hidden">
-    <div class="card">
-      <h2>01 · 匯入收到的投票</h2>
-      <p class="muted">將參與者傳來的完整投票訊息貼在下方。每次可貼一份；同一裝置產生的更新票會覆蓋舊票，不會重複累計。</p>
-      <label for="incoming">投票訊息</label>
-      <textarea id="incoming" placeholder="請貼上含有 QIPAO_VOTE_V1: 的投票訊息"></textarea>
-      <div class="actions" style="margin-top:9px"><button id="importBtn" class="primary" type="button">匯入此張選票</button><button id="clearIncomingBtn" type="button">清空輸入</button></div>
-      <div class="status" id="organizerStatus" role="status"></div>
-    </div>
-    <div class="card">
-      <div class="row"><h2>02 · 票數統計</h2><strong id="participantCount">0 人參與</strong></div>
-      <p class="muted">依照參與者實際回傳並匯入的票數計算，不包含尚未回傳的選擇。</p>
-      <div class="summary">
-        <div><h3>最熱門的 12 個時段</h3><ol class="rank" id="ranking"></ol></div>
-        <div><h3>參與者清單</h3><div class="scroll"><table><thead><tr><th>姓名</th><th>已選時段</th><th>操作</th></tr></thead><tbody id="voters"></tbody></table></div></div>
-      </div>
-      <div class="actions" style="margin-top:22px"><button id="csvBtn" type="button">匯出票數 CSV</button><button id="backupBtn" type="button">備份所有投票 JSON</button><button id="restoreBtn" type="button">還原投票備份</button><input id="restoreInput" type="file" accept="application/json,.json" class="hidden"></div>
-      <div class="notice warning">統計資料保存在此瀏覽器中。請定期使用「備份所有投票 JSON」，避免更換裝置或清除瀏覽器資料後遺失。</div>
-    </div>
-  </section>
-  <footer>INTERNAL USE ONLY · OFFLINE FIRST · 2026.12 — 2027.01</footer>
+ <header class="rule">
+  <div class="eyebrow">HANA · PRIVATE LINK POLL</div>
+  <h1>旗袍合作｜可配合時間投票</h1>
+  <p>2026 年 12 月至 2027 年 1 月。每週從星期日開始，每日以半天為單位。</p>
+  <div class="notice">這是合作團隊內部使用的獨立投票頁，不會顯示於此域 Hineni 官網。填寫後按「提交投票」，資料才會同步儲存；相同瀏覽器可修改既有選擇。</div>
+ </header>
+ <section class="card">
+  <h2>01 · 參與者</h2>
+  <label for="voterName">姓名或暱稱（必填）</label>
+  <input id="voterName" maxlength="40" autocomplete="name" placeholder="請填寫姓名">
+  <p class="muted">使用本裝置的投票識別碼儲存與更新；若更換瀏覽器或清除資料，可能被視為不同人。姓名不會出現在公開票數頁面。</p>
+ </section>
+ <section class="card">
+  <div class="row"><h2>02 · 勾選可以配合的時段</h2><div class="actions"><button id="decBtn" type="button" class="active">2026 / 12</button><button id="janBtn" type="button">2027 / 01</button></div></div>
+  <p class="muted">上午 10:00–14:00／下午 14:00–18:00，可跨月複選。點選日期數字可一次選擇或取消當日兩個時段。每個時段下方顯示目前累計票數。</p>
+  <div class="cal" id="calendar" role="group" aria-label="時間投票月曆"></div>
+  <div class="row" style="margin-top:14px"><strong id="selectedCount" class="selected">已選擇 0 個時段</strong><button id="clearBtn" type="button">清除選擇</button></div>
+ </section>
+ <section class="card">
+  <div class="row"><div><h2>03 · 提交投票</h2><p class="muted">按下方按鈕即可儲存到共同投票資料庫，無須回傳投票碼。</p></div><button class="primary" id="saveBtn" type="button">提交投票</button></div>
+  <div role="status" aria-live="polite" id="saveStatus" class="status"></div>
+ </section>
+ <section class="card">
+  <div class="row"><h2>所有人的投票統計</h2><div class="actions"><strong id="participantCount">— 人參與</strong><button id="refreshBtn" type="button">更新統計</button></div></div>
+  <p class="muted">此處只顯示各時段票數，不公開參與者姓名。依票數由多至少排序。</p>
+  <div class="summary"><div><h3>最多人有空的 12 個時段</h3><ol class="rank" id="ranking"></ol></div><div><h3>目前統計說明</h3><p class="muted">淡綠色標記為已選時段；時段上的數字是所有人已提交的投票數。投票選擇不代表活動已確定排程。</p><p class="muted">投票期間：2026/12/01–2027/01/31<br>統一採台灣時間（UTC+8）。</p></div></div>
+ </section>
+ <section class="card">
+  <h2>統籌者專用｜檢視名單與匯出</h2>
+  <p class="muted">輸入私下提供的管理碼，才能檢視各參與者與其選擇。請勿將管理碼貼在群組中。</p>
+  <div class="actions"><input id="adminCode" type="password" placeholder="統籌者管理碼" aria-label="統籌者管理碼"><button id="adminBtn" type="button">載入完整名單</button><button id="csvBtn" type="button" disabled>匯出 CSV</button></div>
+  <div id="adminStatus" role="status" aria-live="polite" class="status"></div>
+  <div id="adminBlock" class="scroll hidden"><table><thead><tr><th>參與者</th><th>已選時段數</th><th>最後更新</th></tr></thead><tbody id="adminRows"></tbody></table></div>
+ </section>
+ <footer>HANA · INTERNAL COLLABORATION · 2026.12 — 2027.01</footer>
 </main>
 <script>
-(function(){
-  'use strict';
-  const PREFIX='QIPAO_VOTE_V1:';
-  const VOTER_KEY='hana_qipao_poll_voter_v1';
-  const ADMIN_KEY='hana_qipao_poll_admin_v1';
-  const first='2026-12-01';
-  const last='2027-01-31';
-  const $=id=>document.getElementById(id);
-  const pad=n=>String(n).padStart(2,'0');
-  const monthDays={12:31,1:31};
-  const validSlots=new Set();
-  for(const [year,month,days] of [[2026,12,31],[2027,1,31]]){
-    for(let d=1;d<=days;d++){
-      const date=`${year}-${pad(month)}-${pad(d)}`;
-      validSlots.add(date+'_am'); validSlots.add(date+'_pm');
-    }
-  }
-  function readStorage(key,fallback){try{return JSON.parse(localStorage.getItem(key))||fallback;}catch(e){return fallback;}}
-  function persist(key,value){try{localStorage.setItem(key,JSON.stringify(value));return true;}catch(e){return false;}}
-  function uuid(){return crypto&&crypto.randomUUID?crypto.randomUUID():('v-'+Date.now().toString(36)+'-'+Math.random().toString(36).slice(2));}
-  const initial=readStorage(VOTER_KEY,{});
-  const voter={id:typeof initial.id==='string'?initial.id:uuid(),name:typeof initial.name==='string'?initial.name:'',slots:new Set(Array.isArray(initial.slots)?initial.slots.filter(s=>validSlots.has(s)):[])};
-  let adminVotes=readStorage(ADMIN_KEY,{});
-  if(!adminVotes||typeof adminVotes!=='object'||Array.isArray(adminVotes))adminVotes={};
-  let month=12;
-  function voterSave(){persist(VOTER_KEY,{id:voter.id,name:voter.name,slots:[...voter.slots]});}
-  function formatSlot(s){const [date,part]=s.split('_');const [y,m,d]=date.split('-');return `${Number(m)}/${Number(d)} ${part==='am'?'10:00–14:00':'14:00–18:00'}`;}
-  function safeSlots(list){if(!Array.isArray(list)||list.length>124)return null;const s=[...new Set(list)];if(s.some(x=>typeof x!=='string'||!validSlots.has(x)))return null;return s.sort();}
-  function makeCalendar(){
-    const el=$('calendar');el.replaceChildren();
-    ['日','一','二','三','四','五','六'].forEach(w=>{const t=document.createElement('div');t.className='weekday';t.textContent='週'+w;el.append(t);});
-    const year=month===12?2026:2027;const lead=new Date(year,month-1,1).getDay();
-    for(let i=0;i<lead;i++){const blank=document.createElement('div');blank.className='empty';el.append(blank);}
-    for(let d=1;d<=monthDays[month];d++){
-      const date=`${year}-${pad(month)}-${pad(d)}`;
-      const day=document.createElement('div');day.className='day'+(new Date(year,month-1,d).getDay()===0?' sun':'');
-      const dateBtn=document.createElement('button');dateBtn.type='button';dateBtn.className='day-number';dateBtn.textContent=d;dateBtn.setAttribute('aria-label',`${Number(month)} 月 ${d} 日，全選或取消當天`);
-      dateBtn.addEventListener('click',()=>{
-        const both=voter.slots.has(date+'_am')&&voter.slots.has(date+'_pm');
-        ['am','pm'].forEach(part=>both?voter.slots.delete(date+'_'+part):voter.slots.add(date+'_'+part));
-        updateCalendar();voterSave();invalidateDraft();
-      });
-      day.append(dateBtn);
-      for(const [part,label,time] of [['am','上午','10–14'],['pm','下午','14–18']]){
-        const key=date+'_'+part;
-        const btn=document.createElement('button');btn.type='button';btn.className='slot';btn.dataset.slot=key;
-        btn.setAttribute('aria-label',`${Number(month)} 月 ${d} 日 ${label} ${time} 點`);
-        const name=document.createElement('span');name.textContent=label;
-        const small=document.createElement('small');small.textContent=time;
-        btn.append(name,small);
-        btn.addEventListener('click',()=>{voter.slots.has(key)?voter.slots.delete(key):voter.slots.add(key);updateCalendar();voterSave();invalidateDraft();});
-        day.append(btn);
+(()=>{
+ 'use strict';
+ const API="https://ihmvziqisputjnjkuhvm.supabase.co", KEY="sb_publishable_xipXAHCwziguVpbr3DEN-w_AI6Cap3f";
+ const STORAGE='hana_qipao_live_vote_v1', pad=n=>String(n).padStart(2,'0'), $=id=>document.getElementById(id);
+ const days=[[2026,12,31],[2027,1,31]], valid=new Set();
+ for(const [y,m,n] of days)for(let d=1;d<=n;d++){let k=y+'-'+pad(m)+'-'+pad(d);valid.add(k+'_am');valid.add(k+'_pm');}
+ function getLocal(){try{return JSON.parse(localStorage.getItem(STORAGE)||'{}');}catch{return {};}}
+ function persist(){try{localStorage.setItem(STORAGE,JSON.stringify({token:state.token,name:state.name,slots:[...state.slots]}));}catch{}}
+ const local=getLocal();
+ const state={token:typeof local.token==='string'&&/^[a-f0-9-]{36}$/i.test(local.token)?local.token:crypto.randomUUID(),
+  name:typeof local.name==='string'?local.name:'',slots:new Set((Array.isArray(local.slots)?local.slots:[]).filter(x=>valid.has(x))),month:12,counts:{},participants:0,admin:[]};
+ $('voterName').value=state.name;persist();
+ async function rpc(name,payload={}){
+   const res=await fetch(API+'/rest/v1/rpc/'+name,{method:'POST',headers:{apikey:KEY,'Content-Type':'application/json'},body:JSON.stringify(payload),cache:'no-store'});
+   let result;try{result=await res.json();}catch{result=null;}
+   if(!res.ok)throw Error(result?.message||'無法連線至投票服務（HTTP '+res.status+'）');
+   return result;
+ }
+ function status(id,msg,isError=false){let el=$(id);el.textContent=msg;el.className='status '+(isError?'error':'success');}
+ function nice(slot){const [date,part]=slot.split('_');return date.replace('2026-','').replace('2027-','')+' '+(part==='am'?'上午':'下午');}
+ function draw(){
+   const el=$('calendar');el.replaceChildren();
+   for(const w of ['日','一','二','三','四','五','六']){const t=document.createElement('div');t.className='weekday';t.textContent='週'+w;el.append(t);}
+   const year=state.month===12?2026:2027, count=state.month===12?31:31;
+   for(let i=0;i<new Date(year,state.month-1,1).getDay();i++){const b=document.createElement('div');b.className='empty';el.append(b);}
+   for(let d=1;d<=count;d++){
+     const date=year+'-'+pad(state.month)+'-'+pad(d),day=document.createElement('div');
+     day.className='day'+(new Date(year,state.month-1,d).getDay()===0?' sun':'');
+     const all=document.createElement('button');all.type='button';all.className='day-number';all.textContent=d;
+     all.setAttribute('aria-label',state.month+'月'+d+'日全選或取消');
+     all.onclick=()=>{let both=state.slots.has(date+'_am')&&state.slots.has(date+'_pm');for(const t of ['am','pm'])both?state.slots.delete(date+'_'+t):state.slots.add(date+'_'+t);persist();draw();};
+     day.append(all);
+     for(const [part,name,time] of [['am','上午','10–14'],['pm','下午','14–18']]){
+       const k=date+'_'+part,b=document.createElement('button');b.type='button';b.className='slot';b.setAttribute('aria-pressed',String(state.slots.has(k)));
+       b.setAttribute('aria-label',state.month+'月'+d+'日'+name+time+'點，已有'+(state.counts[k]||0)+'人');
+       const title=document.createElement('span');title.textContent=name;
+       const detail=document.createElement('small');detail.textContent=time+' · '+(state.counts[k]||0)+'票';
+       b.append(title,detail);
+       b.onclick=()=>{state.slots.has(k)?state.slots.delete(k):state.slots.add(k);persist();draw();};
+       day.append(b);
+     }
+     el.append(day);
+   }
+   $('selectedCount').textContent='已選擇 '+state.slots.size+' 個半日時段';
+   $('decBtn').classList.toggle('active',state.month===12);$('janBtn').classList.toggle('active',state.month===1);
+ }
+ function drawSummary(){
+   $('participantCount').textContent=state.participants+' 人參與';
+   const rank=Object.entries(state.counts).filter(([,n])=>n>0).sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0])).slice(0,12);
+   const el=$('ranking');el.replaceChildren();
+   if(!rank.length){let li=document.createElement('li');li.textContent='目前尚未有人提交投票';el.append(li);}
+   for(const [k,n] of rank){const li=document.createElement('li'),label=document.createElement('span'),bar=document.createElement('div'),fill=document.createElement('div'),number=document.createElement('strong');
+     label.textContent=nice(k);bar.className='track';fill.className='fill';fill.style.width=(100*n/Math.max(state.participants,1))+'%';bar.append(fill);
+     number.textContent=n+' 票';number.className='num';li.append(label,bar,number);el.append(li);}
+ }
+ async function refresh(){
+   const data=await rpc('qipao_availability_summary');if(!Array.isArray(data))throw Error('票數格式錯誤');
+   const counts={};for(const row of data){if(valid.has(row.slot))counts[row.slot]=Number(row.votes)||0;}
+   state.counts=counts;state.participants=Number(data[0]?.participants)||0;drawSummary();draw();
+ }
+ $('decBtn').onclick=()=>{state.month=12;draw();};
+ $('janBtn').onclick=()=>{state.month=1;draw();};
+ $('voterName').oninput=e=>{state.name=e.target.value;persist();};
+ $('clearBtn').onclick=()=>{if(state.slots.size&&confirm('確定清除尚未提交的選擇？')){state.slots.clear();persist();draw();}};
+ $('refreshBtn').onclick=async()=>{try{await refresh();status('saveStatus','統計已更新');}catch(e){status('saveStatus',e.message,true);}};
+ $('saveBtn').onclick=async()=>{
+   const name=state.name.trim();
+   if(!name||name.length>40){status('saveStatus','請填寫姓名（1–40 字）',true);return;}
+   if(!state.slots.size){status('saveStatus','請至少選擇一個半日時段',true);return;}
+   $('saveBtn').disabled=true;status('saveStatus','正在提交投票…');
+   try{
+      await rpc('qipao_availability_submit',{p_token:state.token,p_name:name,p_slots:[...state.slots].sort()});
+      state.name=name;persist();status('saveStatus','已成功提交！你的時段已計入共同統計，可以再次修改並重新提交。');
+      await refresh();
+   }catch(e){status('saveStatus','提交失敗：'+e.message,true);}
+   finally{$('saveBtn').disabled=false;}
+ };
+ function csvCell(t){let s=String(t??'');if(/^\s*[=+\-@]/.test(s))s="'"+s;return '"'+s.replaceAll('"','""')+'"';}
+ $('adminBtn').onclick=async()=>{
+   const pass=$('adminCode').value;if(!pass){status('adminStatus','請輸入管理碼',true);return;}
+   $('adminBtn').disabled=true;
+   try{
+      const rows=await rpc('qipao_availability_admin',{p_access:pass});state.admin=rows;
+      const el=$('adminRows');el.replaceChildren();
+      for(const row of rows){let tr=document.createElement('tr');
+        for(const val of [row.display_name,row.slots?.length||0,new Date(row.updated_at).toLocaleString('zh-TW',{timeZone:'Asia/Taipei'})]){
+           const td=document.createElement('td');td.textContent=val;tr.append(td);}
+        el.append(tr);
       }
-      el.append(day);
-    }
-    updateCalendar();
-    $('decBtn').classList.toggle('active',month===12);$('janBtn').classList.toggle('active',month===1);
-  }
-  function updateCalendar(){document.querySelectorAll('[data-slot]').forEach(btn=>btn.setAttribute('aria-pressed',String(voter.slots.has(btn.dataset.slot))));$('selectedCount').textContent=`已選擇 ${voter.slots.size} 個半日時段`;}
-  function invalidateDraft(){ $('voterMessage').value='';$('copyBtn').disabled=true;$('saveTxtBtn').disabled=true;$('voterStatus').textContent=''; }
-  function setStatus(id,message,error=false){const node=$(id);node.textContent=message;node.className='status '+(error?'error':'success');}
-  function encodeData(data){const bytes=new TextEncoder().encode(JSON.stringify(data));let binary='';bytes.forEach(b=>binary+=String.fromCharCode(b));return btoa(binary).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');}
-  function decodeData(encoded){if(encoded.length>16000)throw Error('選票內容過長');const binary=atob(encoded.replace(/-/g,'+').replace(/_/g,'/'));const bytes=Uint8Array.from(binary,ch=>ch.charCodeAt(0));return JSON.parse(new TextDecoder().decode(bytes));}
-  function download(filename,content,type='text/plain;charset=utf-8'){
-    const blob=new Blob([content],{type});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=filename;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),2000);
-  }
-  async function copyText(value){if(navigator.clipboard&&navigator.clipboard.writeText){try{await navigator.clipboard.writeText(value);return true;}catch(e){}}
-    const target=$('voterMessage');target.focus();target.select();try{return document.execCommand('copy');}catch(e){return false;}}
-  function switchTab(organizer){ $('voterSection').classList.toggle('hidden',organizer);$('organizerSection').classList.toggle('hidden',!organizer);$('voterTab').classList.toggle('active',!organizer);$('organizerTab').classList.toggle('active',organizer);$('voterTab').setAttribute('aria-pressed',String(!organizer));$('organizerTab').setAttribute('aria-pressed',String(organizer));if(organizer)renderAdmin();}
-  function validVote(raw){
-    if(!raw||typeof raw!=='object'||typeof raw.id!=='string'||raw.id.length<8||raw.id.length>100||typeof raw.name!=='string'||raw.name.trim().length<1||raw.name.trim().length>40)throw Error('姓名或投票識別碼有誤');
-    const list=safeSlots(raw.slots);if(!list||list.length===0)throw Error('選擇的時段有誤');
-    return {id:raw.id,name:raw.name.trim(),slots:list};
-  }
-  function importVote(text){const match=text.match(/QIPAO_VOTE_V1:([\w-]+)/);if(!match)throw Error('找不到有效的投票碼。請要求參與者傳送完整訊息。');return validVote(decodeData(match[1]));}
-  function renderAdmin(){
-    const votes=Object.values(adminVotes).filter(v=>{try{validVote(v);return true;}catch(e){return false;}});
-    $('participantCount').textContent=votes.length+' 人參與';
-    const counts={};for(const s of validSlots)counts[s]=0;
-    votes.forEach(v=>v.slots.forEach(s=>{counts[s]++;}));
-    const ranked=Object.entries(counts).filter(([,n])=>n>0).sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0])).slice(0,12);
-    const ol=$('ranking');ol.replaceChildren();
-    if(!ranked.length){const li=document.createElement('li');li.textContent='尚未收到選票';ol.append(li);}
-    for(const [key,count] of ranked){
-      const li=document.createElement('li');const name=document.createElement('span');name.textContent=formatSlot(key);
-      const track=document.createElement('div');track.className='track';const fill=document.createElement('div');fill.className='fill';fill.style.width=(count/Math.max(votes.length,1)*100)+'%';track.append(fill);
-      const n=document.createElement('strong');n.textContent=count+' 票';n.className='num';li.append(name,track,n);ol.append(li);
-    }
-    const tbody=$('voters');tbody.replaceChildren();
-    votes.sort((a,b)=>a.name.localeCompare(b.name,'zh-Hant'));
-    for(const v of votes){
-      const tr=document.createElement('tr'),name=document.createElement('td'),n=document.createElement('td'),action=document.createElement('td'),remove=document.createElement('button');
-      name.textContent=v.name;n.textContent=v.slots.length+' 個';remove.textContent='移除';remove.type='button';remove.addEventListener('click',()=>{if(confirm(`確定移除 ${v.name} 的選票？`)){delete adminVotes[v.id];persist(ADMIN_KEY,adminVotes);renderAdmin();}});
-      action.append(remove);tr.append(name,n,action);tbody.append(tr);
-    }
-  }
-  function csvCell(v){let t=String(v);if(/^[\s]*[=+\-@]/.test(t))t="'"+t;return '"'+t.replaceAll('"','""')+'"';}
-  function exportCSV(){const votes=Object.values(adminVotes).filter(v=>{try{validVote(v);return true;}catch(e){return false;}});const rows=[['日期','時段','可配合人數','參與者姓名']];
-    const sorted=[...validSlots].sort();for(const slot of sorted){const people=votes.filter(v=>v.slots.includes(slot));rows.push([slot.split('_')[0],slot.endsWith('_am')?'10:00-14:00':'14:00-18:00',people.length,people.map(v=>v.name).join('、')]);}
-    download('旗袍活動_2026年12月至2027年1月_投票統計.csv','\ufeff'+rows.map(row=>row.map(csvCell).join(',')).join('\r\n'),'text/csv;charset=utf-8');}
-  $('voterTab').addEventListener('click',()=>switchTab(false));$('organizerTab').addEventListener('click',()=>switchTab(true));
-  $('decBtn').addEventListener('click',()=>{month=12;makeCalendar();});$('janBtn').addEventListener('click',()=>{month=1;makeCalendar();});
-  $('voterName').value=voter.name;
-  $('voterName').addEventListener('input',e=>{voter.name=e.target.value;voterSave();invalidateDraft();});
-  $('clearBtn').addEventListener('click',()=>{if(voter.slots.size===0||confirm('確定清除所有已選日期與時段？')){voter.slots.clear();voterSave();updateCalendar();invalidateDraft();}});
-  $('generateBtn').addEventListener('click',()=>{
-    try{
-      const vote=validVote({id:voter.id,name:voter.name,slots:[...voter.slots]});
-      const human=vote.slots.map(formatSlot).join('、');
-      const code=PREFIX+encodeData(vote);
-      $('voterMessage').value=`【旗袍合作｜時間調查】\n姓名：${vote.name}\n可配合時段（共 ${vote.slots.length} 個）：\n${human}\n\n以下為彙整用投票碼，請務必完整傳送：\n${code}`;
-      $('copyBtn').disabled=false;$('saveTxtBtn').disabled=false;
-      setStatus('voterStatus','訊息已產生，請複製後傳給統籌者，才算完成投票。');
-    }catch(e){setStatus('voterStatus',e.message,true);}
-  });
-  $('copyBtn').addEventListener('click',async()=>{const ok=await copyText($('voterMessage').value);setStatus('voterStatus',ok?'已複製，請貼到 LINE 群組或私訊統籌者。':'自動複製失敗，請長按選取文字手動複製。',!ok);});
-  $('saveTxtBtn').addEventListener('click',()=>download('旗袍合作_我的可配合時間.txt',$('voterMessage').value));
-  $('clearIncomingBtn').addEventListener('click',()=>{$('incoming').value='';setStatus('organizerStatus','');});
-  $('importBtn').addEventListener('click',()=>{
-    try{const v=importVote($('incoming').value);const existed=Object.prototype.hasOwnProperty.call(adminVotes,v.id);adminVotes[v.id]=v;if(!persist(ADMIN_KEY,adminVotes))throw Error('瀏覽器儲存失敗，請檢查儲存空間或隱私設定。');
-      renderAdmin();$('incoming').value='';setStatus('organizerStatus',`${existed?'已更新':'已匯入'} ${v.name} 的選票（${v.slots.length} 個時段）。`);
-    }catch(e){setStatus('organizerStatus',e.message,true);}
-  });
-  $('csvBtn').addEventListener('click',exportCSV);
-  $('backupBtn').addEventListener('click',()=>download('旗袍合作_投票原始備份.json',JSON.stringify({format:'HANA_QIPAO_BACKUP_V1',votes:Object.values(adminVotes)},null,2),'application/json;charset=utf-8'));
-  $('restoreBtn').addEventListener('click',()=>$('restoreInput').click());
-  $('restoreInput').addEventListener('change',async e=>{
-    try{const f=e.target.files?.[0];if(!f)return;if(f.size>2000000)throw Error('備份檔案超過 2MB');const backup=JSON.parse(await f.text());if(backup.format!=='HANA_QIPAO_BACKUP_V1'||!Array.isArray(backup.votes))throw Error('不是此程式產生的備份檔');
-      if(!confirm(`要還原 ${backup.votes.length} 張選票？相同投票碼會覆蓋現有選票。`))return;
-      const next={...adminVotes};for(const row of backup.votes){const v=validVote(row);next[v.id]=v;}adminVotes=next;if(!persist(ADMIN_KEY,adminVotes))throw Error('瀏覽器儲存失敗');renderAdmin();setStatus('organizerStatus',`已還原 ${backup.votes.length} 張備份選票。`);
-    }catch(err){setStatus('organizerStatus',err.message,true);}finally{e.target.value='';}
-  });
-  makeCalendar();
+      $('adminBlock').classList.remove('hidden');$('csvBtn').disabled=false;
+      status('adminStatus','已載入 '+rows.length+' 位參與者');
+   }catch(e){state.admin=[];$('adminBlock').classList.add('hidden');$('csvBtn').disabled=true;status('adminStatus','管理驗證失敗：'+e.message,true);}
+   finally{$('adminBtn').disabled=false;}
+ };
+ $('csvBtn').onclick=()=>{
+   if(!state.admin.length)return;
+   const rows=[['日期','時段','可配合人數','參與者姓名']];
+   for(const slot of [...valid].sort()){
+     const people=state.admin.filter(v=>Array.isArray(v.slots)&&v.slots.includes(slot)).map(v=>v.display_name);
+     rows.push([slot.split('_')[0],slot.endsWith('_am')?'10:00-14:00':'14:00-18:00',people.length,people.join('、')]);
+   }
+   const blob=new Blob(['\ufeff'+rows.map(r=>r.map(csvCell).join(',')).join('\r\n')],{type:'text/csv;charset=utf-8'});
+   const u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download='旗袍合作_2026-12_2027-01_統計.csv';a.click();URL.revokeObjectURL(u);
+ };
+ draw();drawSummary();
+ (async()=>{try{
+   const mine=await rpc('qipao_availability_mine',{p_token:state.token});
+   if(Array.isArray(mine)&&mine[0]){state.name=mine[0].display_name;state.slots=new Set((mine[0].slots||[]).filter(k=>valid.has(k)));$('voterName').value=state.name;persist();}
+   await refresh();
+ }catch(e){status('saveStatus','目前無法讀取雲端投票資料，請重新整理：'+e.message,true);}})();
 })();
 </script>
 </body>

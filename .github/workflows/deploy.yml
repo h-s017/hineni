@@ -28,6 +28,8 @@ jobs:
           mkdir -p _site
           cp -R source/ciyu/. _site/
           cp -R source/assets _site/assets
+          # Publish standalone team calendar without linking it from the main site.
+          if [ -d internal-tools ]; then mkdir -p _site/internal-tools; cp -R internal-tools/. _site/internal-tools/; fi
           printf 'hineni.hanascent.com\n' > _site/CNAME
 
           # Migrate canonical URLs and structured-data identifiers to the new site.
